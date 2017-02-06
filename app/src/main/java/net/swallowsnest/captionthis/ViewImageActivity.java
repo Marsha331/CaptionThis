@@ -113,6 +113,7 @@ public class ViewImageActivity extends AppCompatActivity {
                 makeToast("Failure: " + t.getMessage());
             }
         });
+        finish();
     }
 
     private void makeToast(String text) {
@@ -130,13 +131,6 @@ public class ViewImageActivity extends AppCompatActivity {
             InputStream in = getContentResolver().openInputStream(imageUri);
             imageFile = File.createTempFile(fileName, fileType, getCacheDir());
             copyInputStreamToFile(in, imageFile);
-
-
-            // copy from inputstream to output stream
-            // save result in a temp file
-            // close both streams
-            // upload the file
-            // delete the file after upload
         } catch (Exception e) {
             Log.e(TAG, "Error creating file: ", e);
         }
